@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -45,16 +46,10 @@ public class EquipesFragment extends Fragment {
     Map<TipoProva, String> mapTipoProva = new HashMap<TipoProva, String>();
 
     private View rootView;
-    private FloatingActionButton btn_mais_um;
-    private FloatingActionButton btn_mais_cinco;
-    private FloatingActionButton btn_mais_dez;
-    private FloatingActionButton btn_mais_quinze;
-    private FloatingActionButton btn_mais_trinta;
-    private FloatingActionButton btn_menos_um;
-    private FloatingActionButton btn_menos_cinco;
-    private FloatingActionButton btn_menos_dez;
-    private FloatingActionButton btn_menos_quinze;
-    private FloatingActionButton btn_menos_trinta;
+    private FloatingActionButton btn_mais;
+    private FloatingActionButton btn_menos;
+
+    private NumberPicker nbp_pontos;
 
     private ArrayList<String> equipes;
 
@@ -80,136 +75,54 @@ public class EquipesFragment extends Fragment {
     }
 
     private void SetupButtons() {
-        btn_mais_um = (FloatingActionButton) rootView.findViewById(R.id.btn_mais_um);
-        btn_mais_cinco = (FloatingActionButton) rootView.findViewById(R.id.btn_mais_cinco);
-        btn_mais_dez = (FloatingActionButton) rootView.findViewById(R.id.btn_mais_dez);
-        btn_mais_quinze = (FloatingActionButton) rootView.findViewById(R.id.btn_mais_quinze);
-        btn_mais_trinta = (FloatingActionButton) rootView.findViewById(R.id.btn_mais_trinta);
-        btn_menos_um = (FloatingActionButton) rootView.findViewById(R.id.btn_menos_um);
-        btn_menos_cinco = (FloatingActionButton) rootView.findViewById(R.id.btn_menos_cinco);
-        btn_menos_dez = (FloatingActionButton) rootView.findViewById(R.id.btn_menos_dez);
-        btn_menos_quinze = (FloatingActionButton) rootView.findViewById(R.id.btn_menos_quinze);
-        btn_menos_trinta = (FloatingActionButton) rootView.findViewById(R.id.btn_menos_trinta);
+        btn_mais = (FloatingActionButton) rootView.findViewById(R.id.btn_mais);
+        btn_menos = (FloatingActionButton) rootView.findViewById(R.id.btn_menos);
+        nbp_pontos = (NumberPicker) rootView.findViewById(R.id.nbp_pontos);
 
-        btn_mais_um.setOnClickListener(new View.OnClickListener() {
+        nbp_pontos.setMinValue(1);
+        nbp_pontos.setMaxValue(50);
+
+        btn_mais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, 1);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "1 ponto foi inserido para a equipe " + EquipeVigente.toString());
+                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, nbp_pontos.getValue());
+
+                    String pontoOuPontos = (nbp_pontos.getValue() > 1) ? "pontos " : "ponto ";
+                    String foiOuForam = (nbp_pontos.getValue() > 1) ? "foram " : "foi ";
+                    String inseridoOuInseridos = (nbp_pontos.getValue() > 1) ? "inseridos " : "inserido ";
+                    String qtdPontos = String.valueOf(nbp_pontos.getValue()) + " ";
+                    String mensagemInsercao = qtdPontos + pontoOuPontos + foiOuForam + inseridoOuInseridos +
+                            "para a equipe " + EquipeVigente.toString();
+
+                    Dialogs.ShowAlert(mapTipoProva.get(ProvaVigente), mensagemInsercao);
                 } catch (Exception ex) {
                     Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
                 }
             }
         });
 
-        btn_mais_cinco.setOnClickListener(new View.OnClickListener() {
+        btn_menos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, 5);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "5 pontos foram inseridos para a equipe " + EquipeVigente.toString());
+                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, -nbp_pontos.getValue());
+
+                    String pontoOuPontos = (nbp_pontos.getValue() > 1) ? "pontos " : "ponto ";
+                    String foiOuForam = (nbp_pontos.getValue() > 1) ? "foram " : "foi ";
+                    String retiradoOuRetirados = (nbp_pontos.getValue() > 1) ? "retirados " : "retirado ";
+                    String qtdPontos = String.valueOf(nbp_pontos.getValue()) + " ";
+                    String mensagemRetirada = qtdPontos + pontoOuPontos + foiOuForam + retiradoOuRetirados +
+                            "da equipe " + EquipeVigente.toString();
+
+                    Dialogs.ShowAlert(mapTipoProva.get(ProvaVigente), mensagemRetirada);
                 } catch (Exception ex) {
                     Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
                 }
             }
         });
 
-        btn_mais_dez.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, 10);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "10 pontos foram inseridos para a equipe " + EquipeVigente.toString());
-                } catch (Exception ex) {
-                    Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
-                }
-            }
-        });
 
-        btn_mais_quinze.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, 15);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "15 pontos foram inseridos para a equipe " + EquipeVigente.toString());
-                } catch (Exception ex) {
-                    Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
-                }
-            }
-        });
-
-        btn_mais_trinta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, 30);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "30 pontos foram inseridos para a equipe " + EquipeVigente.toString());
-                } catch (Exception ex) {
-                    Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
-                }
-            }
-        });
-
-        btn_menos_um.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, -1);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "1 ponto foi retirado da equipe " + EquipeVigente.toString());
-                } catch (Exception ex) {
-                    Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
-                }
-            }
-        });
-
-        btn_menos_cinco.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, -5);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "5 pontos foram retirados da equipe " + EquipeVigente.toString());
-                } catch (Exception ex) {
-                    Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
-                }
-            }
-        });
-
-        btn_menos_dez.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, -10);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "10 pontos foram retirados da equipe " + EquipeVigente.toString());
-                } catch (Exception ex) {
-                    Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
-                }
-            }
-        });
-
-        btn_menos_quinze.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, -15);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "15 pontos foram retirados da equipe " + EquipeVigente.toString());
-                } catch (Exception ex) {
-                    Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
-                }
-            }
-        });
-
-        btn_menos_trinta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    PontuacaoService.AdicionarPontuacao(ProvaVigente, EquipeVigente, -30);
-                    Dialogs.ShowAlert(ProvaVigente.toString(), "30 pontos foram retirados da equipe " + EquipeVigente.toString());
-                } catch (Exception ex) {
-                    Log.i("Erro", "Aconteceu o seguinte erro: " + ex);
-                }
-            }
-        });
     }
 
     private void SetupEquipes() {
@@ -270,8 +183,8 @@ public class EquipesFragment extends Fragment {
         mapTipoProva.put(TipoProva.QuemDisseIsso, "Quem disse isso?");
         mapTipoProva.put(TipoProva.Extra, "Extra");
 
-
         txt_prova = (TextView) rootView.findViewById(R.id.txt_prova);
+        txt_prova.setText("Prova: " + mapTipoProva.get(ProvaVigente));
 
         String[] provas = {
                 mapTipoProva.get(TipoProva.DesafioBiblico),

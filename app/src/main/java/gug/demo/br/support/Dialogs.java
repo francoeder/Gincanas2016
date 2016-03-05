@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.Toast;
 
+import java.lang.reflect.Method;
+
 /**
  * Created by Éder on 01/03/2016.
  */
@@ -38,5 +40,9 @@ public class Dialogs extends Activity {
         alertDialog.show();
 
     }
+
+
+
+
 
 }

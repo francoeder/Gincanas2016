@@ -6,8 +6,8 @@
             android:title="Visão Geral da Gincana" />
         <item android:id="@+id/nav_equipes" android:icon="@android:drawable/ic_menu_myplaces"
             android:title="Pontuar Equipes" />
-        <item android:id="@+id/nav_provas" android:icon="@android:drawable/ic_menu_mylocation"
-        android:title="Provas" />
+        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_mylocation"
+        android:title="Gerenciar Base de Dados" />
         <item android:id="@+id/nav_estatistica" android:icon="@android:drawable/ic_menu_info_details"
             android:title="Estatística da Gincana" />
     </group>

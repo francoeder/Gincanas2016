@@ -23,7 +23,7 @@
             android:layout_marginTop="70dp">
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_mais_trinta"
+                android:id="@+id/btn_mais"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="false"
@@ -34,71 +34,11 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="370dp"
                 android:longClickable="false"
-                android:src="@mipmap/ic_mais_trinta"
+                android:src="@mipmap/ic_plus"
                 app:backgroundTint="#0099ff" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_mais_quinze"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="right|top"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="290dp"
-                android:longClickable="false"
-                android:src="@mipmap/ic_mais_quinze"
-                app:backgroundTint="#0099ff" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_mais_dez"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="right|top"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="210dp"
-                android:longClickable="false"
-                android:src="@mipmap/ic_mais_dez"
-                app:backgroundTint="#0099ff" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_mais_cinco"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="right|top"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="130dp"
-                android:longClickable="false"
-                android:src="@mipmap/ic_mais_cinco"
-                app:backgroundTint="#0099ff" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_mais_um"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="right|top"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="50dp"
-                android:longClickable="false"
-                android:src="@mipmap/ic_mais_um"
-                app:backgroundTint="#0099ff" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_menos_trinta"
+                android:id="@+id/btn_menos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -108,59 +48,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="370dp"
                 android:longClickable="false"
-                android:src="@mipmap/ic_menos_trinta"
-                app:backgroundTint="#ff003b" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_menos_quinze"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="left|top"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="290dp"
-                android:longClickable="false"
-                android:src="@mipmap/ic_menos_quinze"
-                app:backgroundTint="#ff003b" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_menos_dez"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="left|top"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="210dp"
-                android:longClickable="false"
-                android:src="@mipmap/ic_menos_dez"
-                app:backgroundTint="#ff003b" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_menos_cinco"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="left|top"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="130dp"
-                android:longClickable="false"
-                android:src="@mipmap/ic_menos_cinco"
-                app:backgroundTint="#ff003b" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btn_menos_um"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="left|top"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="50dp"
-                android:longClickable="false"
-                android:src="@mipmap/ic_menos_um"
+                android:src="@mipmap/ic_minus"
                 app:backgroundTint="#ff003b" />
 
             <TextView
@@ -168,12 +56,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|top"
-                android:text="Prova: X"
+                android:text="Prova: Extra"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_marginTop="10dp"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
+            <NumberPicker
+                android:layout_width="179dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/nbp_pontos"
+                android:layout_gravity="center_horizontal|top"
+                style="@style/AppTheme.NoActionBar"
+                android:layout_marginTop="100dp"
+                android:background="#bbc7fa94" />
 
         </FrameLayout>
     </FrameLayout>

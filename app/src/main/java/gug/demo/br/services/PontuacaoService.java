@@ -18,7 +18,6 @@ public class PontuacaoService {
 
     public PontuacaoService() {
         PontuacaoDao = new PontuacaoDao();
-        ChartService = new ChartService();
     }
 
     public void AdicionarPontuacao(TipoProva prova, TipoEquipe equipe, int pontos){
@@ -31,5 +30,24 @@ public class PontuacaoService {
         result = PontuacaoDao.GetPontuacaoTodasEquipes();
 
         return result;
+    }
+
+    public ArrayList<PontuacaoModel> GetPontuacaoTodasEquipesPorProva(TipoProva prova){
+        ArrayList<PontuacaoModel> result = new ArrayList<PontuacaoModel>();
+        result = PontuacaoDao.GetPontuacaoTodasEquipesPorProva(prova);
+
+        return result;
+    }
+
+    public ArrayList<PontuacaoModel> GetPontuacaoProvasPorEquipe(TipoEquipe equipe){
+        ArrayList<PontuacaoModel> result = new ArrayList<PontuacaoModel>();
+        result = PontuacaoDao.GetPontuacaoProvasPorEquipe(equipe);
+
+        return result;
+    }
+
+
+    public void ResetData(){
+        PontuacaoDao.ResetData();
     }
 }

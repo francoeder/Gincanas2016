@@ -1,5 +1,6 @@
 package gug.demo.br.gincanas2016;
 
+import android.app.Dialog;
 import android.app.FragmentManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,28 +12,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.NumberPicker;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 
 import java.util.ArrayList;
 
 import gug.demo.br.dao.PontuacaoDao;
 import gug.demo.br.enums.TipoEquipe;
-import gug.demo.br.enums.TipoProva;
 import gug.demo.br.fragments.EquipesFragment;
 import gug.demo.br.fragments.EstatisticaFragment;
 import gug.demo.br.fragments.MainFragment;
-import gug.demo.br.fragments.ProvasFragment;
+import gug.demo.br.fragments.ManagementFragment;
 import gug.demo.br.models.PontuacaoModel;
+import gug.demo.br.support.Dialogs;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public Toolbar toolbar;
     public static SQLiteDatabase database;
+    Dialogs Dialogs;
 
     //region Equipe Componentes
     NumberPicker nbPontos;
@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity
 
         // Inicializando Base de Dados
         InitiateDataBase();
+
+        Dialogs = new Dialogs(this);
 
     }
 
@@ -103,15 +105,15 @@ public class MainActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_main){
+        if (id == R.id.nav_main) {
             fm.beginTransaction().replace(R.id.content_frame, new MainFragment()).commit();
             toolbar.setSubtitle(R.string.principal_subtitle);
         } else if (id == R.id.nav_equipes) {
             fm.beginTransaction().replace(R.id.content_frame, new EquipesFragment()).commit();
             toolbar.setSubtitle(R.string.equipes_subtitle);
-        } else if (id == R.id.nav_provas) {
-            fm.beginTransaction().replace(R.id.content_frame, new ProvasFragment()).commit();
-            toolbar.setSubtitle(R.string.provas_subtitle);
+        } else if (id == R.id.nav_manage) {
+            fm.beginTransaction().replace(R.id.content_frame, new ManagementFragment()).commit();
+            toolbar.setSubtitle(R.string.management_subtitle);
         } else if (id == R.id.nav_estatistica) {
             fm.beginTransaction().replace(R.id.content_frame, new EstatisticaFragment()).commit();
             toolbar.setSubtitle(R.string.estatistica_subtitle);
@@ -122,22 +124,22 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public static void setContentView(BarChart chart){
+    public static void setContentView(BarChart chart) {
         setContentView(chart);
     }
 
     //region Database Methods
 
-    private void InitiateDataBase(){
+    private void InitiateDataBase() {
         CreateDataBase();
         CreateTablePontuacao();
     }
 
-    private void CreateDataBase(){
+    private void CreateDataBase() {
         database = openOrCreateDatabase("appgincanas", MODE_PRIVATE, null);
     }
 
-    private void CreateTablePontuacao(){
+    private void CreateTablePontuacao() {
         String sql = "create table if not exists Pontuacao(" +
                 "Id integer primary key autoincrement, " +
                 "Prova varchar(50), " +
@@ -151,7 +153,7 @@ public class MainActivity extends AppCompatActivity
 
     //region Testes PontuacaoDao
 
-    public void TesteAdicionaPontuacao(){
+    public void TesteAdicionaPontuacao() {
         PontuacaoDao PontuacaoDao = new PontuacaoDao();
 
 //        PontuacaoDao.AdicionarPontuacao(new PontuacaoModel(TipoProva.DesafioBiblico.toString(), TipoEquipe.Amarela.toString(), 15));

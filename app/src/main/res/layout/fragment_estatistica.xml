@@ -1,37 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-    android:id="@+id/frame_layout_estatistica"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame_layout_estatistica"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#88DA26">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btn_view_final_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="left|top"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:longClickable="false"
-        android:src="@mipmap/ic_view_final_result"
-        app:backgroundTint="#ff8000"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="100dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Visualizar Resultado Geral"
-        android:id="@+id/textView3"
-        android:layout_gravity="left|top"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="18dp" />
+    <FrameLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal|top">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_view_final_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:longClickable="false"
+            android:layout_gravity="center|left"
+            android:src="@mipmap/ic_view_final_result"
+            app:backgroundTint="#ff8000" />
+
+        <TextView
+            android:id="@+id/txt_resultado_geral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultado Geral"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="100dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="100dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_view_result_por_prova"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:longClickable="false"
+            android:layout_gravity="center|left"
+            android:src="@mipmap/ic_view_final_result"
+            app:backgroundTint="#ff8000" />
+
+        <TextView
+            android:id="@+id/txt_por_provas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultado Por Prova"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="100dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="200dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_view_result_por_equipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:longClickable="false"
+            android:layout_gravity="center|left"
+            android:src="@mipmap/ic_view_final_result"
+            app:backgroundTint="#ff8000" />
+
+        <TextView
+            android:id="@+id/txt_por_equipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultado Por Equipe"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="100dp" />
+
+    </FrameLayout>
+
+
 
 </FrameLayout>

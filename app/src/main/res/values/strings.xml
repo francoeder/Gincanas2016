@@ -9,4 +9,5 @@
     <string name="equipes_subtitle">Pontuar Equipes</string>
     <string name="provas_subtitle">Provas</string>
     <string name="estatistica_subtitle">Estatística</string>
+    <string name="management_subtitle">Gerenciamento dos Dados</string>
 </resources>

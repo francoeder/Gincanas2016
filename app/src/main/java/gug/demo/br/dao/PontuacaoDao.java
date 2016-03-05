@@ -127,4 +127,15 @@ public class PontuacaoDao extends Activity {
 
         return result;
     }
+
+    public void ResetData() {
+        String sql = "delete from Pontuacao";
+        MainActivity.database.execSQL(sql);
+
+        for(TipoEquipe equipe: TipoEquipe.values()){
+            for(TipoProva prova: TipoProva.values()){
+                AdicionarPontuacao(new PontuacaoModel(prova.toString(), equipe.toString(), 0));
+            }
+        }
+    }
 }

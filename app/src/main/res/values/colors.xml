@@ -13,5 +13,13 @@
     <color name="cor_bar_verde">#50A422</color>
     <color name="cor_bar_azul">#373EA4</color>
 
+    <color name="corDesafioBiblico">#004157</color>
+    <color name="corCampo">#005A78</color>
+    <color name="corGarrafaDeAgua">#006D91</color>
+    <color name="corPapelao">#0086B3</color>
+    <color name="corDardo">#0099CC</color>
+    <color name="corPiqueBandeira">#00A8E0</color>
+    <color name="corQuemDisseIsso">#00B6F2</color>
+    <color name="corExtra">#4AD2FF</color>
 
 </resources>
