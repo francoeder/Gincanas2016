@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#50A422</color>
+    <color name="colorPrimaryDark">#052A1E</color>
+    <color name="colorAccent">#878D1E</color>
+    <color name="corVerde">#8000cc00</color>
+    <color name="corPreta">#80000000</color>
+    <color name="corVermelha">#80FF0000</color>
+    <color name="corAmarela">#ffff00</color>
+    <color name="corAzul">#800066ff</color>
+    <color name="corBranca">#80ffffff</color>
+
+    <color name="cor_bar_verde">#50A422</color>
+    <color name="cor_bar_azul">#373EA4</color>
+
+
+</resources>

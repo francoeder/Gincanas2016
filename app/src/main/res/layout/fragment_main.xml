@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#88DA26">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_marginTop="100dp"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:id="@+id/progressBar"
+        android:layout_gravity="center|top"
+        android:max="100"
+        android:progress="25"
+        android:background="#009d60"
+        android:progressTint="#ffc400" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Progresso das Provas da Gincana"
+        android:id="@+id/textView"
+        android:layout_marginTop="40dp"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal|top"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="25% Completo"
+        android:id="@+id/txt_porcentagem_provas"
+        android:layout_marginTop="65dp"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal|top"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="A Equipe X está na frente"
+        android:id="@+id/equipe_em_primeiro"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="60dp"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center"
+        android:background="#aa00ff" />
+
+</FrameLayout>
